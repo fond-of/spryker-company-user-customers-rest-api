@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Glue\CompanyUserCustomersRestApi;
 
+use FondOfSpryker\Glue\CompanyUserCustomersRestApi\Dependency\Client\CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientInterface;
 use FondOfSpryker\Glue\CompanyUserCustomersRestApi\Processor\Expander\CustomerExpander;
 use FondOfSpryker\Glue\CompanyUserCustomersRestApi\Processor\Expander\CustomerExpanderInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
@@ -23,6 +24,6 @@ class CompanyUserCustomersRestApiFactory extends AbstractFactory
      */
     protected function getCompanyUserCustomerClient(): CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientInterface
     {
-        return $this->getProvidedDependency(CompanyUserCustomersRestApiDependencyProvider::CLIENT_PRODUCT_LIST_CUSTOMER);
+        return $this->getProvidedDependency(CompanyUserCustomersRestApiDependencyProvider::CLIENT_COMPANY_USER_CUSTOMER);
     }
 }

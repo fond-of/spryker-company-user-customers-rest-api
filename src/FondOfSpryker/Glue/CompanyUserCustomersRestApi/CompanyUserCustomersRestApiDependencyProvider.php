@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Glue\CompanyUserCustomersRestApi;
 
-use FondOfSpryker\Glue\CompanyUserCustomersRestApi\Dependency\Client\CompanyUserCustomersRestApiToCompanyUserCustomerClientBridge;
+use FondOfSpryker\Glue\CompanyUserCustomersRestApi\Dependency\Client\CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientBridge;
 use Spryker\Glue\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Glue\Kernel\Container;
 
@@ -32,8 +32,8 @@ class CompanyUserCustomersRestApiDependencyProvider extends AbstractBundleDepend
     protected function addCompanyUserCustomerClient(Container $container): Container
     {
         $container[static::CLIENT_COMPANY_USER_CUSTOMER] = function (Container $container) {
-            return new CompanyUserCustomersRestApiToCompanyUserCustomerClientBridge(
-                $container->getLocator()->productListCustomer()->client()
+            return new CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientBridge(
+                $container->getLocator()->companyUserCustomerConnector()->client()
             );
         };
 

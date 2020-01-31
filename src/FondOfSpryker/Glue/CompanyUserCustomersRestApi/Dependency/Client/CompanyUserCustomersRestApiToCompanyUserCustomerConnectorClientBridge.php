@@ -27,6 +27,6 @@ class CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientBridge impl
      */
     public function expandCustomerWithCompanyUser(CustomerTransfer $customerTransfer): CustomerTransfer
     {
-        return $this->companyUserCustomerConnectorClient->expandCustomerWithCompanyUserIds($customerTransfer);
+        return $this->companyUserCustomerConnectorClient->expandCustomerWithCompanyUser($customerTransfer);
     }
 }
