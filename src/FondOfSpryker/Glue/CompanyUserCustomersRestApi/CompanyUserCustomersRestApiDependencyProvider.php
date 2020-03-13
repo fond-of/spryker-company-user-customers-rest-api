@@ -31,7 +31,7 @@ class CompanyUserCustomersRestApiDependencyProvider extends AbstractBundleDepend
      */
     protected function addCompanyUserCustomerClient(Container $container): Container
     {
-        $container[static::CLIENT_COMPANY_USER_CUSTOMER] = function (Container $container) {
+        $container[static::CLIENT_COMPANY_USER_CUSTOMER] = static function (Container $container) {
             return new CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientBridge(
                 $container->getLocator()->companyUserCustomerConnector()->client()
             );
