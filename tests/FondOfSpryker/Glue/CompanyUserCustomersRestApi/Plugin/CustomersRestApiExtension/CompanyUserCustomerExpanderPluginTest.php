@@ -56,8 +56,30 @@ class CompanyUserCustomerExpanderPluginTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->companyUserCustomerExpanderPlugin = new CompanyUserCustomerExpanderPlugin();
-        $this->companyUserCustomerExpanderPlugin->setFactory($this->companyUserCustomersRestApiFactoryMock);
+        $this->companyUserCustomerExpanderPlugin = new class (
+            $this->companyUserCustomersRestApiFactoryMock
+        ) extends CompanyUserCustomerExpanderPlugin {
+            /**
+             * @var \FondOfSpryker\Glue\CompanyUserCustomersRestApi\CompanyUserCustomersRestApiFactory
+             */
+            protected $companyUserCustomersRestApiFactory;
+
+            /**
+             * @param \FondOfSpryker\Glue\CompanyUserCustomersRestApi\CompanyUserCustomersRestApiFactory $companyUserCustomersRestApiFactory
+             */
+            public function __construct(CompanyUserCustomersRestApiFactory $companyUserCustomersRestApiFactory)
+            {
+                $this->companyUserCustomersRestApiFactory = $companyUserCustomersRestApiFactory;
+            }
+
+            /**
+             * @return \FondOfSpryker\Glue\CompanyUserCustomersRestApi\CompanyUserCustomersRestApiFactory|void
+             */
+            public function getFactory(): CompanyUserCustomersRestApiFactory
+            {
+                return $this->companyUserCustomersRestApiFactory;
+            }
+        };
     }
 
     /**
