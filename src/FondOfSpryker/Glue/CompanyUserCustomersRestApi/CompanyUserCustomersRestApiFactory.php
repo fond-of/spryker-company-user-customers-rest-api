@@ -18,8 +18,6 @@ class CompanyUserCustomersRestApiFactory extends AbstractFactory
     }
 
     /**
-     * @throws
-     *
      * @return \FondOfSpryker\Glue\CompanyUserCustomersRestApi\Dependency\Client\CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientInterface
      */
     protected function getCompanyUserCustomerClient(): CompanyUserCustomersRestApiToCompanyUserCustomerConnectorClientInterface
