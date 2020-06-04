@@ -13,7 +13,7 @@ use Spryker\Glue\Kernel\AbstractPlugin;
 class CompanyUserCustomerExpanderPlugin extends AbstractPlugin implements CustomerExpanderPluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
